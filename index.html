@@ -292,8 +292,8 @@ width:100%;
 .header,
 .data-row{
     display:grid;
-    grid-template-columns:40px 2fr 1fr 1fr;
-    gap:12px;
+    grid-template-columns:20px 2fr 1fr 1fr;
+    gap:6px;
     align-items:center;
 }
 
@@ -366,6 +366,23 @@ width:100%;
     margin:15px 0;
 }
 
+.input-box{
+    margin-top:5px;
+    padding:8px 14px 14px;
+    border-radius:14px;
+
+    background:rgba(15,23,42,.65);
+
+    border:1px solid rgba(56,189,248,.35);
+
+    box-shadow:
+        0 0 15px rgba(37,99,235,.15),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
 </style>
 </head>
 <body>
@@ -394,6 +411,8 @@ onchange="updateTanggal()">
 <div class="group">
 
 <h3>📊 AKUMULASI TRANSAKSI NETZME TANGGAL <span class="tgl"></span></h3>
+
+<div class="input-box">
 
 <div class="table-input">
 
@@ -452,6 +471,8 @@ onchange="updateTanggal()">
         <input type="text" class="nominal" id="nominal7">
         <input type="text" class="nominal" id="trx7">
     </div>
+
+</div>
 
 </div>
 
