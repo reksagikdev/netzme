@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>REKAP NETZME</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#07111f,#0f172a,#111827);
+    color:#e5e7eb;
+    padding:30px;
+}
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    background:#111827;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    font-size:30px;
+    font-weight:700;
+    color:#ffffff;
+    margin-bottom:8px;
+}
+
+.title-logo{
+    width:58px;
+    height:58px;
+}
+
+.title-line{
+    width:900px;
+    height:2px;
+    margin:12px auto 28px;
+    border-radius:50px;
+    background:linear-gradient(90deg,#2563eb,#38bdf8,#2563eb);
+	margin-top:10px;
+}
+
+.top{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+margin-bottom:30px;
+font-weight:600;
+}
+
+.top input{
+    width:180px;
+}
+
+.section-title{
+    font-size:18px;
+    font-weight:700;
+    margin:25px 0 15px;
+    color:#1b3f72;
+    border-bottom:2px solid #dce6f5;
+    padding-bottom:8px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:180px 340px;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.row label{
+    font-weight:600;
+}
+
+input{
+    width:180px;
+    height:36px;
+    border:1px solid #94a3b8;
+    border-radius:8px;
+    padding:0 12px;
+    font-size:14px;
+	font-weight:600;
+}
+
+input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+    outline:none;
+}
+
+.group{
+    margin-top:24px;
+    padding:22px;
+    border-radius:18px;
+    background:#182233;
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.group h3{
+    display:inline-block;
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    position:relative;
+}
+
+.group h3::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:2px;
+    background:#fff;
+    border-radius:50px;
+}
+
+.button-area{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+}
+
+button{
+    min-width:170px;
+    height:45px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.copy{
+    background:#2563eb;
+    color:#fff;
+}
+
+.reset{
+    background:#dc2626;
+    color:#fff;
+}
+
+.copy:hover{
+    background:#1d4ed8;
+}
+
+.reset:hover{
+    background:#b91c1c;
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#777;
+    font-size:13px;
+}
+
+@media(max-width:700px){
+
+.row{
+    display:grid;
+    grid-template-columns:220px 340px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.row label{
+    font-weight:600;
+    color:#334155;
+    font-size:14px;
+}
+
+input{
+width:100%;
+}
+
+}
+
+
+.bonus-container{
+    display:flex;
+    gap:200px;
+}
+
+
+
+
+@media(max-width:700px){
+
+    .bonus-container{
+        flex-direction:column;
+    }
+
+    
+}
+
+.group hr{
+    border:0;
+    border-top:1px solid rgba(255,255,255,.12);
+    margin:18px 0;
+}
+
+.green-dot{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#22c55e;
+    margin-right:10px;
+    box-shadow:0 0 8px rgba(34,197,94,.6);
+    vertical-align:middle;
+}
+
+.footer{
+    margin-top:14px;
+
+    display:block;
+    width:fit-content;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    font-size:9px;
+
+    font-weight:600;
+    letter-spacing:0.6px;
+
+    color:rgba(255,255,255,0.9);
+
+    padding:2px 6px;   
+
+    border-radius:6px;
+
+    border:1px solid rgba(96,165,250,0.25);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+	text-shadow:
+    0 1px 2px rgba(0,0,0,0.8),
+    0 0 8px rgba(255,255,255,0.15);
+}
+
+.button-area{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.12);
+}
+
+.table-input{
+    width:100%;
+    margin-top:10px;
+}
+
+.header,
+.data-row{
+    display:grid;
+    grid-template-columns:40px 2fr 1fr 1fr;
+    gap:12px;
+    align-items:center;
+}
+
+.header{
+    margin-bottom:10px;
+}
+
+.header div{
+    text-align:center;
+    font-weight:700;
+    color:#fff;
+}
+
+.no{
+    text-align:center;
+    font-weight:700;
+    color:#fff;
+    font-size:15px;
+}
+
+.data-row{
+    margin-bottom:10px;
+}
+
+.data-row input{
+    width:100%;
+    height:38px;
+}
+
+.data-row input{
+    text-align:center;
+}
+
+.data-row input:nth-child(3),
+.data-row input:nth-child(4){
+    text-align:center;
+}
+
+.summary-box{
+    margin-top:22px;
+    padding-top:20px;
+    padding-left:40px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.summary-row{
+    display:grid;
+    grid-template-columns:150px 220px;
+    gap:12px;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.summary-row label{
+    font-weight:700;
+    color:#fff;
+}
+
+.summary-row input{
+    width:100%;
+    background:#0f172a;
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+}
+
+.summary-box hr{
+    border:0;
+    border-top:1px solid rgba(255,255,255,.12);
+    margin:15px 0;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="title">
+	<img src="bg/gambar2.jpg" alt="Logo" class="title-logo">
+        REKAP HARIAN NETZME
+    </div>
+	<div class="title-line"></div>
+
+
+
+<div class="top">
+
+<label>Tanggal :</label>
+
+<input
+type="date"
+id="tanggal"
+onchange="updateTanggal()">
+
+</div>
+
+<div class="group">
+
+<h3>📊 AKUMULASI TRANSAKSI NETZME TANGGAL <span class="tgl"></span></h3>
+
+<div class="table-input">
+
+    <div class="header">
+        <div>No</div>
+        <div>NAMA TOKO</div>
+        <div>NOMINAL</div>
+        <div>JUMLAH TRX</div>
+    </div>
+
+    <div class="data-row">
+        <div class="no">1</div>
+        <input type="text" id="toko1">
+        <input type="text" class="nominal" id="nominal1">
+        <input type="text" class="nominal" id="trx1">
+    </div>
+
+    <div class="data-row">
+        <div class="no">2</div>
+        <input type="text" id="toko2">
+        <input type="text" class="nominal" id="nominal2">
+        <input type="text" class="nominal" id="trx2">
+    </div>
+
+    <div class="data-row">
+        <div class="no">3</div>
+        <input type="text" id="toko3">
+        <input type="text" class="nominal" id="nominal3">
+        <input type="text" class="nominal" id="trx3">
+    </div>
+
+    <div class="data-row">
+        <div class="no">4</div>
+        <input type="text" id="toko4">
+        <input type="text" class="nominal" id="nominal4">
+        <input type="text" class="nominal" id="trx4">
+    </div>
+
+    <div class="data-row">
+        <div class="no">5</div>
+        <input type="text" id="toko5">
+        <input type="text" class="nominal" id="nominal5">
+        <input type="text" class="nominal" id="trx5">
+    </div>
+
+    <div class="data-row">
+        <div class="no">6</div>
+        <input type="text" id="toko6">
+        <input type="text" class="nominal" id="nominal6">
+        <input type="text" class="nominal" id="trx6">
+    </div>
+
+    <div class="data-row">
+        <div class="no">7</div>
+        <input type="text" id="toko7">
+        <input type="text" class="nominal" id="nominal7">
+        <input type="text" class="nominal" id="trx7">
+    </div>
+
+</div>
+
+</div>
+
+<div class="summary-box">
+
+    <div class="summary-row">
+        <label>TOTAL NOMINAL :</label>
+        <input type="text" id="totalJumlah" readonly>
+    </div>
+
+    <div class="summary-row">
+        <label>TOTAL TRX :</label>
+        <input type="text" id="totalTrx" readonly>
+    </div>
+
+    <hr>
+
+    <div class="summary-row">
+        <label>NILAI A :</label>
+        <input type="text" id="nilaiA" readonly>
+    </div>
+
+    <div class="summary-row">
+        <label>NILAI B :</label>
+        <input type="text" id="nilaiB" readonly>
+    </div>
+
+    <div class="summary-row">
+        <label>NILAI C :</label>
+        <input type="text" id="nilaiC" readonly>
+    </div>
+
+    <div class="summary-row">
+        <label>NILAI D :</label>
+        <input type="text" id="nilaiD" readonly>
+    </div>
+
+</div>
+
+    <div class="cashback-box">
+
+        
+</div>
+
+<div class="button-area">
+
+<button class="copy" onclick="copyRekap1(this)">
+📋 COPY REKAP
+</button>
+
+<button class="reset" onclick="resetRekap()">
+🗑 RESET
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+© 2026 | BY YOGIK
+
+</div>
+
+</div>
+
+<script>
+
+
+// ========================
+// FORMAT TANGGAL
+// ========================
+
+function updateTanggal(){
+
+    const value = document.getElementById("tanggal").value;
+
+    if(!value) return;
+
+    const bulan=[
+        "JANUARI","FEBRUARI","MARET","APRIL",
+        "MEI","JUNI","JULI","AGUSTUS",
+        "SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"
+    ];
+
+    const d=new Date(value);
+
+    const hasil=
+    d.getDate()+" "+
+    bulan[d.getMonth()]+" "+
+    d.getFullYear();
+
+    document.querySelectorAll(".tgl").forEach(el=>{
+        el.textContent=hasil;
+    });
+
+}
+
+
+// ========================
+// FORMAT INPUT NOMINAL
+// ========================
+
+document.querySelectorAll(".nominal").forEach(input => {
+
+    input.addEventListener("input", function(){
+
+        let angka = this.value.replace(/\D/g, "");
+
+        if(angka === ""){
+            this.value = "";
+            return;
+        }
+
+        this.value = Number(angka).toLocaleString("en-US");
+
+    });
+
+});
+
+// ========================
+// COPY
+// ========================
+
+function tombolCopy(btn){
+
+btn.innerHTML="✅ COPIED";
+
+setTimeout(()=>{
+btn.innerHTML="📋 COPY REKAP";
+},2000);
+
+}
+
+function copyText(text){
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    textarea.remove();
+
+}
+
+
+// HEADER TANGGAL
+let tanggalText = document.querySelector(".tgl").innerText;
+
+
+
+
+// ========================
+// DEFAULT TANGGAL HARI INI
+// ========================
+
+window.onload=function(){
+
+const today=new Date().toISOString().split("T")[0];
+
+document.getElementById("tanggal").value=today;
+
+updateTanggal();
+
+}
+
+
+
+function formatTanggalIndonesia(value){
+
+    if(!value) return "";
+
+    const bulan=[
+        "JANUARI","FEBRUARI","MARET","APRIL",
+        "MEI","JUNI","JULI","AGUSTUS",
+        "SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"
+    ];
+
+    const d=new Date(value);
+
+    return d.getDate()+" "+bulan[d.getMonth()]+" "+d.getFullYear();
+
+}
+
+// ========================
+// HITUNG TOTAL NOMINAL
+// ========================
+
+function hitungTotalJumlah(){
+
+    let total = 0;
+
+    document.querySelectorAll(".nominal[id^='nominal']").forEach(input => {
+
+        const angka = input.value.replace(/,/g, "");
+
+        if(angka){
+            total += Number(angka);
+        }
+
+    });
+
+    document.getElementById("totalJumlah").value =
+        total.toLocaleString("en-US");
+		
+		hitungNilai();
+
+}
+
+document.querySelectorAll(".nominal[id^='nominal']").forEach(input => {
+
+    input.addEventListener("input", hitungTotalJumlah);
+
+});
+
+// ========================
+// HITUNG TOTAL TRX
+// ========================
+
+function hitungTotalTrx(){
+
+    let total = 0;
+
+    document.querySelectorAll(".nominal[id^='trx']").forEach(input => {
+
+        const angka = input.value.replace(/,/g, "");
+
+        if(angka){
+            total += Number(angka);
+        }
+
+    });
+
+    document.getElementById("totalTrx").value =
+        total.toLocaleString("en-US");
+
+}
+
+document.querySelectorAll(".nominal[id^='trx']").forEach(input => {
+
+    input.addEventListener("input", hitungTotalTrx);
+
+});
+
+// ========================
+// ENTER PINDAH KE INPUT BAWAH
+// ========================
+
+document.querySelectorAll(".data-row input").forEach((input, index, inputs)=>{
+
+    input.addEventListener("keydown", function(e){
+
+        if(e.key === "Enter"){
+
+            e.preventDefault();
+
+            let next = inputs[index + 1];
+
+            if(next){
+                next.focus();
+            }
+
+        }
+
+    });
+
+});
+
+// ========================
+// HITUNG NILAI A - D
+// ========================
+
+function hitungNilai(){
+
+    let totalNominal = document.getElementById("totalJumlah").value.replace(/,/g,"");
+
+    if(totalNominal === ""){
+        totalNominal = 0;
+    }
+
+
+    // NILAI A
+    let nilaiA = Number(totalNominal);
+
+
+    // NILAI B
+    let nilaiB = nilaiA * 1.007000;
+
+
+    // NILAI C = NILAI B x 1%
+    let nilaiC = nilaiB * 0.01;
+
+
+    // NILAI D = NILAI B - NILAI C
+    let nilaiD = nilaiB - nilaiC;
+
+
+    document.getElementById("nilaiA").value =
+        Math.round(nilaiA).toLocaleString("en-US");
+
+    document.getElementById("nilaiB").value =
+        Math.round(nilaiB).toLocaleString("en-US");
+
+    document.getElementById("nilaiC").value =
+        Math.round(nilaiC).toLocaleString("en-US");
+
+    document.getElementById("nilaiD").value =
+        Math.round(nilaiD).toLocaleString("en-US");
+
+}
+
+// ========================
+// COPY REKAP
+// ========================
+
+function copyRekap1(btn){
+
+    let hasil = "";
+
+    let tanggal = document.querySelector(".tgl").innerText;
+
+    hasil += "AKUMULASI TRANSAKSI NETZME TANGGAL " + tanggal + "\n\n";
+
+
+    let nomor = 1;
+
+    document.querySelectorAll(".data-row").forEach(row=>{
+
+        let toko = row.querySelector("input:nth-of-type(1)").value;
+        let nominal = row.querySelector("input:nth-of-type(2)").value;
+        let trx = row.querySelector("input:nth-of-type(3)").value;
+
+
+        if(toko){
+
+            hasil += nomor + ". " 
+            + toko 
+            + " | " 
+            + nominal 
+            + " | " 
+            + trx 
+            + " Trx\n";
+
+            nomor++;
+
+        }
+
+    });
+
+
+    hasil += "\nTOTAL NOMINAL : "
+    + document.getElementById("totalJumlah").value
+    + "\n";
+
+
+    hasil += "TOTAL TRX : "
+    + document.getElementById("totalTrx").value
+    + "\n";
+
+
+    hasil += "===========================================\n";
+
+
+    hasil += "NILAI A : "
+    + document.getElementById("nilaiA").value
+    + "\n";
+
+
+    hasil += "NILAI B : "
+    + document.getElementById("nilaiB").value
+    + "\n";
+
+
+    hasil += "NILAI C : "
+    + document.getElementById("nilaiC").value
+    + "\n";
+
+
+    hasil += "NILAI D : "
+    + document.getElementById("nilaiD").value;
+
+
+
+    copyText(hasil);
+
+
+    btn.innerHTML="✅ COPIED";
+
+    setTimeout(()=>{
+        btn.innerHTML="📋 COPY REKAP";
+    },2000);
+
+}
+
+// ========================
+// RESET SEMUA DATA
+// ========================
+
+function resetRekap(){
+
+    // hapus semua input tabel
+    document.querySelectorAll(".data-row input").forEach(input=>{
+        input.value="";
+    });
+
+
+    // hapus hasil total
+    document.getElementById("totalJumlah").value="";
+    document.getElementById("totalTrx").value="";
+
+
+    // hapus nilai A-D
+    document.getElementById("nilaiA").value="";
+    document.getElementById("nilaiB").value="";
+    document.getElementById("nilaiC").value="";
+    document.getElementById("nilaiD").value="";
+
+
+}
+
+</script>
+
+</body>
+</html>
